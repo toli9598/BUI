@@ -1,0 +1,5 @@
+# Bazel-Outputs
+/bazel*/
+
+#pycache
+/main/__pycache__
