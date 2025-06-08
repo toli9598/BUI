@@ -12,8 +12,5 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up Bazelisk
-      run: npm install -g @bazel/bazelisk
-
     - name: Run files through Bazelisk
       run: bazelisk run main:hello_world
