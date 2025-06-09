@@ -4,16 +4,17 @@ load("@rules_python//python:py_library.bzl", "py_library")
 py_binary(
     name = "hello_world",
     srcs = select({
-        ":windows": ["hello_windows.py"],
-        ":macos": ["hello_mac.py"],
+        "@platforms//os:windows": ["hello_windows.py"],
+        "@platforms//os:macos": ["hello_mac.py"],
         "//conditions:default": ["hello_linux.py"]
     }),
     main = select({
-        ":windows": "hello_windows.py",
-        ":macos": "hello_mac.py",
+        "@platforms//os:windows": "hello_windows.py",
+        "@platforms//os:macos": "hello_mac.py",
         "//conditions:default": "hello_linux.py"
     }),
-    deps = [":main"]
+    deps = [":main"],
+    visibility = ["//:__pkg__"]
 )
 
 py_library(
@@ -23,15 +24,3 @@ py_library(
         "//lib:libs"
     ]
 )
-
-constraint_setting(name = "os")
-constraint_value(name = "windows", constraint_setting = ":os")
-constraint_value(name = "linux", constraint_setting = ":os")
-constraint_value(name = "macos", constraint_setting = ":os")
-
-#platform(
-#    name = "windows"
-#    constraint_values = [
-#        "@platforms//os:windows"
-#    ]
-#)

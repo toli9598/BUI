@@ -12,5 +12,5 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Run files through Bazelisk
-      run: bazelisk run main:hello_world
+    - name: Run files through Bazel
+      run: bazel run :main
