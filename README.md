@@ -7,3 +7,5 @@ To build and run the application, use `bazel run :main`.
 To compile for a platform different from your host system, use the argument `--platforms=:windows`, `--platforms=:linux` or `--platforms=:macos`. This expects a x86_64 cpu and is mainly a PoC.
 
 To run a complete clean, use `bazel clean --expunge`.
+
+**Github Actions is set up for a test-run on a push**
