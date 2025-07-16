@@ -14,15 +14,3 @@ jobs:
 
     - name: Run files through Bazel
       run: bazel run :main
-
-  build:
-    runs-on: windows-latest
-    steps:
-      - name: Install Bazel
-        run: choco install bazel
-        
-      - name: Verify Bazel installation
-        run: bazel --version
-        
-      - name: Run files through Bazel
-        run: bazel run :main
